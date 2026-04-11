@@ -3,77 +3,87 @@ import Puppy from "./components/Puppy";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-950 dark:via-purple-900 dark:to-pink-900 bg-[length:200%_200%] animate-[gradient-x_15s_ease_infinite] p-6 lg:p-12 font-sans relative">
-      
-      {/* Decorative background blur */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse delay-1000"></div>
-
-      <main className="relative z-10 flex flex-col items-center w-full max-w-4xl p-8 sm:p-12 bg-white/20 dark:bg-black/30 backdrop-blur-2xl border border-white/40 dark:border-white/10 rounded-[2.5rem] shadow-2xl transition-all duration-500 hover:shadow-purple-500/20 group/card">
+    <div className="min-h-screen p-6 md:p-12 lg:p-24 flex items-center justify-center font-sans overflow-hidden">
+      <main className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 relative z-10 items-center">
         
-        {/* Soft Inner Highlight */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
-
-        <div className="w-full flex flex-col md:flex-row items-center gap-12 sm:gap-16">
+        {/* Left Column: Avatar & Main Title */}
+        <div className="flex flex-col gap-8 w-full justify-center order-1 lg:order-none">
+          <div className="text-center lg:text-left mt-4 lg:mt-0 relative">
+            <h1 className="text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-black leading-none tracking-tighter text-black dark:text-white uppercase drop-shadow-[8px_8px_0px_#FF90E8] dark:drop-shadow-[8px_8px_0px_#9333ea] z-10 relative">
+              nsy
+            </h1>
+            <p className="mt-8 text-xl md:text-3xl font-bold max-w-2xl mx-auto lg:mx-0 border-l-[12px] border-black dark:border-white pl-6 py-2 text-black dark:text-white bg-white/50 dark:bg-black/50 backdrop-blur-sm">
+              Creative Developer. <br/> Building raw, fearless digital experiences.
+            </p>
+          </div>
           
-          {/* Avatar Section: Using the existing Puppy component */}
-          <div className="relative shrink-0 flex items-center justify-center">
-            {/* Soft breathing glow behind avatar */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full blur-xl opacity-30 group-hover/card:opacity-60 transition duration-1000 ease-in-out"></div>
-            
-            <div className="relative flex items-center justify-center w-56 h-56 lg:w-64 lg:h-64 bg-white/40 dark:bg-zinc-800/50 rounded-full overflow-hidden shadow-inner backdrop-blur-md border-2 border-white/60 dark:border-zinc-700/50 group-hover/card:scale-[1.02] transition-transform duration-500">
-              <div className="scale-[0.8] lg:scale-[0.9] translate-y-3 drop-shadow-md">
+          {/* Mobile/Tablet Puppy goes below title, Desktop Puppy is on the right */}
+          <div className="lg:hidden relative group/card w-full max-w-[300px] mx-auto mt-8">
+            <div className="relative w-full aspect-square bg-[#FF90E8] border-[8px] border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] dark:shadow-[16px_16px_0px_0px_rgba(255,255,255,0.9)] overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[24px_24px_0px_0px_rgba(0,0,0,1)]">
+              <div className="flex items-center justify-center w-full h-full scale-[1.3] translate-y-8">
                 <Puppy />
               </div>
             </div>
+            <div className="absolute -top-6 -right-6 w-32 h-12 bg-yellow-400 border-[6px] border-black rotate-[12deg] z-20 flex items-center justify-center font-black text-black text-xl uppercase shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              HELLO
+            </div>
           </div>
+        </div>
 
-          {/* Content Section */}
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left w-full">
-            <div className="inline-block px-5 py-1.5 mb-5 text-xs sm:text-sm font-bold tracking-widest text-[#5e224e] bg-white/40 dark:text-pink-200 dark:bg-black/20 rounded-full ring-1 ring-white/50 dark:ring-white/10 shadow-sm backdrop-blur-md uppercase">
-              Profile
-            </div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-pink-200 dark:from-white dark:to-zinc-400 mb-4 pb-1">
-              Hello, I'm <br className="hidden md:block"/> a Creator.
-            </h1>
-            
-            <p className="max-w-md text-base sm:text-lg text-white/90 dark:text-zinc-300 font-medium leading-relaxed mb-8 drop-shadow-sm">
-              Welcome to my space. I craft beautiful, dynamic, and modern digital experiences that people love to use and watch.
-            </p>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-5 w-full">
-              <a
-                href="#"
-                className="group relative inline-flex items-center justify-center px-8 py-3.5 text-sm font-bold text-[#1e1b4b] transition-all duration-300 bg-white/90 rounded-2xl hover:bg-white hover:scale-105 hover:shadow-xl hover:shadow-black/10 focus:outline-none focus:ring-4 focus:ring-white/50"
-              >
-                View Projects
-                <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </a>
-              
-              <a
-                href="#"
-                className="group inline-flex items-center justify-center px-8 py-3.5 text-sm font-bold text-white transition-all duration-300 bg-black/20 border border-white/30 rounded-2xl hover:bg-black/30 hover:scale-105 hover:shadow-lg backdrop-blur-md"
-              >
-                Contact Me
-              </a>
-            </div>
-
-            {/* Tech Stack Pills */}
-            <div className="mt-10 pt-6 border-t border-white/30 dark:border-white/10 w-full">
-              <p className="text-sm font-bold tracking-wider text-white/80 dark:text-white/50 uppercase mb-4 pl-1">
-                Tech Stack
-              </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3">
-                {["React 19", "Next.js 16", "TailwindCSS 4", "TypeScript"].map((skill) => (
-                  <span key={skill} className="px-4 py-2 text-sm font-bold text-indigo-950 dark:text-indigo-100 bg-white/40 dark:bg-white/10 backdrop-blur-md rounded-xl shadow-sm border border-white/50 dark:border-white/5 hover:-translate-y-1 hover:bg-white/60 dark:hover:bg-white/20 transition-all cursor-default flex items-center justify-center">
-                    {skill}
-                  </span>
-                ))}
+        {/* Right Column: Desktop Avatar, Details, Skills, Actions */}
+        <div className="flex flex-col justify-center gap-10 lg:gap-14 w-full order-2 lg:order-none">
+          
+          {/* Desktop Avatar Frame (Hidden on Mobile/Tablet) */}
+          <div className="hidden lg:block relative group/card w-full max-w-[420px] mx-auto lg:mx-0 lg:ml-auto">
+            <div className="relative w-full aspect-square bg-[#FF90E8] border-[10px] border-black shadow-[20px_20px_0px_0px_rgba(0,0,0,1)] dark:shadow-[20px_20px_0px_0px_rgba(255,255,255,0.9)] overflow-hidden transition-all duration-300 hover:-translate-y-3 hover:-translate-x-3 hover:shadow-[32px_32px_0px_0px_rgba(0,0,0,1)]">
+              <div className="flex items-center justify-center w-full h-full scale-[1.4] translate-y-12">
+                <Puppy />
               </div>
             </div>
+            <div className="absolute -top-8 -left-10 w-40 h-16 bg-yellow-400 border-[8px] border-black rotate-[-15deg] z-20 flex items-center justify-center font-black text-black text-2xl uppercase shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+              Aloha!
+            </div>
           </div>
+          
+          {/* Tech Stack */}
+          <div className="w-full bg-[#B2F5EA] border-[8px] border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] dark:shadow-[16px_16px_0px_0px_rgba(255,255,255,0.9)] p-8 md:p-10 relative">
+            <h2 className="text-3xl md:text-4xl font-black mb-8 uppercase text-black">Tech Stack</h2>
+            
+            <div className="flex flex-wrap gap-4 md:gap-6">
+              {[
+                { name: "React 19", color: "bg-[#FF90E8]" },
+                { name: "Next.js 16", color: "bg-white" },
+                { name: "Tailwind 4", color: "bg-[#FFD700]" },
+                { name: "TypeScript", color: "bg-blue-300" }
+              ].map((skill, i) => (
+                <span 
+                  key={i} 
+                  className={`px-5 py-3 ${skill.color} text-black font-black border-[4px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wider text-base md:text-xl transition-all hover:-translate-y-2 hover:-translate-x-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] cursor-pointer`}
+                >
+                  {skill.name}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 justify-center lg:justify-start w-full">
+            <a
+              href="#"
+              className="flex-1 lg:flex-none px-8 py-6 bg-[#FFD700] text-black font-black text-2xl uppercase border-[8px] border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[20px_20px_0px_0px_rgba(0,0,0,1)] active:translate-y-4 active:translate-x-4 active:shadow-none flex items-center justify-center gap-3 group"
+            >
+              Projects
+              <svg className="w-8 h-8 transition-transform group-hover:translate-x-3 group-hover:-translate-y-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            
+            <a
+              href="#"
+              className="flex-1 lg:flex-none px-8 py-6 bg-white dark:bg-black text-black dark:text-white font-black text-2xl border-[8px] border-black dark:border-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_0px_rgba(255,255,255,0.9)] transition-all duration-200 hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[20px_20px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[20px_20px_0px_0px_rgba(255,255,255,0.9)] active:translate-y-4 active:translate-x-4 active:shadow-none flex items-center justify-center"
+            >
+              Contact Me
+            </a>
+          </div>
+
         </div>
       </main>
     </div>

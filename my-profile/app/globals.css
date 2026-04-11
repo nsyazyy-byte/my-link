@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFF9E6; /* Neobrutalist cream background */
+  --foreground: #000000;
 }
 
 @theme inline {
@@ -12,24 +12,29 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* In neobrutalism, we might just keep the same stark contrast even for dark mode preference
+   or provide a very stark high-contrast dark version. Let's keep it bold. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1e1e1e;
+    --foreground: #ffffff;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  /* Brutalist grid pattern */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center center;
 }
 
-@keyframes gradient-x {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+/* A custom bounce/jitter animation for brutalist feel */
+@keyframes jitter {
+  0% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+  100% { transform: rotate(-1deg); }
 }
