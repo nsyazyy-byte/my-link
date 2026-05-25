@@ -1,53 +1,53 @@
-# 👨‍💻 마이링크 (MyLink) 상세 사용자 시나리오
+# 👨‍💻 MyLink Detailed User Scenarios
 
-본 문서는 서비스의 핵심 기능인 **구글 로그인, 인라인 편집, 자동 파비콘 연동** 등을 기반으로 사용자가 겪게 될 여정을 상세히 기술합니다.
-
----
-
-## 1. 신규 사용자의 가입 및 자동 온보딩
-**사용자:** 사이드 프로젝트를 홍보하고 싶은 개발자 '김코딩' 씨
-
-1.  **방문:** 마이링크(MyLink) 메인 페이지의 매력적인 디자인에 끌려 접속합니다.
-2.  **간편 가입:** '구글로 3초 만에 시작하기' 버튼을 클릭합니다. 별도의 이메일 인증이나 비밀번호 설정 없이 본인의 구글 계정(`kcoding@gmail.com`)을 선택합니다.
-3.  **프로필 자동 생성:** 로그인이 완료되자마자 시스템은 지메일 ID인 `kcoding`을 `displayName`(URL 슬러그)으로, 이름인 `김코딩`을 `username`으로 자동 설정하여 데이터베이스에 저장합니다.
-4.  **대시보드 진입:** 즉시 관리자 대시보드로 이동합니다. 화면 중앙에는 "나만의 링크 주소: `mylink.site/kcoding`"이라는 문구가 반겨주며, 상단에는 '김'자가 적힌 심플한 아바타가 표시됩니다.
+This document describes the major user journeys based on core features like **Google Login, Inline Editing, and Auto Favicon Integration**.
 
 ---
 
-## 2. 프로필 개인화 (인라인 편집 및 닉네임 변경)
-**사용자:** 가입한 닉네임을 더 멋지게 바꾸고 싶은 '김코딩' 씨
+## 1. New User Signup & Auto Onboarding
+**User:** 'Kim Coding', a developer wanting to promote a side project.
 
-1.  **닉네임 수정:** 현재 주소(`kcoding`)가 너무 평범하다고 느껴, 대시보드 상의 닉네임 텍스트를 클릭합니다. 그 자리에서 즉시 입력창으로 변하며, `kcoding-dev`로 입력하고 엔터를 칩니다.
-2.  **실시간 주소 변경:** 별도의 저장 버튼 없이 즉시 본인의 주소가 `mylink.site/kcoding-dev`로 변경된 것을 확인합니다.
-3.  **이름 및 소개글 수정:** 상단의 '김코딩' 이름을 클릭해 '열정 개발자 김코딩'으로 변경합니다. 동시에 아바타의 글자가 '열'로 바뀌는 것을 확인합니다. 그 아래 소개란을 클릭해 "더 나은 세상을 만드는 코드를 씁니다."라는 바이오(Bio)를 입력합니다.
-
----
-
-## 3. 링크 콘텐츠 구성 (구글 파비콘 API 자동화)
-**사용자:** 자신의 깃허브와 블로그를 등록하려는 '김코딩' 씨
-
-1.  **깃허브 등록:** '새 링크 추가' 버튼을 누릅니다. 제목에 '나의 GitHub', URL에 `github.com/kcoding`을 입력합니다.
-2.  **자동 아이콘 확인:** URL을 입력하자마자 깃허브의 고유 로고(파비콘)가 링크 옆에 자동으로 렌더링되는 것을 확인하며 시각적인 만족감을 느낀다.
-3.  **기술 블로그 등록:** 동일한 방식으로 본인의 티스토리 블로그 링크를 추가합니다. 티스토리의 고유 아이콘이 자동으로 붙습니다.
-4.  **인라인 편집:** 등록한 블로그 제목을 '코딩 일기장'으로 바꾸고 싶어, 리스트의 제목 텍스트를 클릭해 즉시 수정합니다.
-5.  **링크 삭제:** 예전에 테스트로 등록했던 잘못된 링크 옆의 'X' 버튼을 눌러 즉시 목록에서 제거합니다.
+1.  **Visit:** Attracted by the bold design, visiting the MyLink main page.
+2.  **Quick Signup:** Clicking 'Start in 3 seconds with Google' and selecting a Google account (`kcoding@gmail.com`).
+3.  **Auto Profile Generation:** System automatically sets `kcoding` as the `displayName` (URL slug) and `Kim Coding` as the `username`.
+4.  **Dashboard Entry:** Entering the admin dashboard immediately. Sees "Your link address: `mylink.site/kcoding`" and a simple avatar with the letter 'K'.
 
 ---
 
-## 4. 최종 결과물 공유 및 방문자 경험 (Public View)
-**사용자:** 김코딩 씨의 페이지에 방문한 동료 '박동료' 씨
+## 2. Profile Personalization (Inline Editing & Nickname Change)
+**User:** 'Kim Coding' wanting to change the default nickname.
 
-1.  **주소 클릭:** 김코딩 씨가 공유한 `mylink.site/kcoding-dev` 링크를 클릭합니다.
-2.  **브랜딩 감상:** 모바일에 최적화된 화면에서 강렬한 하이 콘트라스트의 네오브루탈리즘 디자인이 적용된 페이지를 감상합니다. 김코딩 씨의 이니셜 아바타와 힙한 버튼 스타일이 눈에 띕니다.
-3.  **상호작용:** 버튼 위에 마우스를 올리거나 터치할 때, 하드 섀도우가 움직이며 버튼이 실제로 눌리는 듯한 애니메이션을 즐깁니다.
-4.  **페이지 이동:** '나의 GitHub' 버튼을 클릭하여 별도의 대기 시간 없이 원활하게 김코딩 씨의 깃허브 페이지로 이동합니다.
-5.  **주소 복사:** 김코딩 씨는 본인의 대시보드 상단에 있는 '링크 복사' 버튼을 눌러 자신의 페이지 주소를 인스타그램 프로필 링크로 손쉽게 등록합니다.
+1.  **Nickname Edit:** Clicks the nickname text on the dashboard. It turns into an input field. Enters `kcoding-dev` and presses Enter.
+2.  **Real-time URL Change:** Confirms the link is now `mylink.site/kcoding-dev` immediately.
+3.  **Profile Edit:** Clicks the name 'Kim Coding' and changes it to 'Passionate Developer Kim Coding'. The avatar changes to 'P'. Adds a bio: "I write code to make the world better."
 
 ---
 
-## 5. 지속적인 유지보수 및 보안
-**사용자:** 링크를 업데이트하러 다시 방문한 '김코딩' 씨
+## 3. Link Content Setup (Google Favicon API Automation)
+**User:** 'Kim Coding' registering a GitHub and blog.
 
-1.  **재진입:** 시간이 지난 후 다시 서비스에 접속합니다. 구글 계정 정보가 유지되어 있어 '로그인' 버튼 하나만으로 자신의 대시보드에 즉시 진입합니다.
-2.  **정보 업데이트:** 새로운 포트폴리오 사이트가 생겨 기존의 블로그 링크 정보를 인라인으로 빠르게 수정하거나 새 링크를 추가합니다.
-3.  **보안 유지:** 모든 수정 사항은 `김코딩` 씨의 구글 계정으로 인증된 세션에서만 가능하며, 타인은 공개된 `mylink.site/kcoding-dev` 페이지만 볼 수 있음을 안심합니다.
+1.  **GitHub Link:** Clicks 'Add Link'. Enters 'My GitHub' as the title and `github.com/kcoding` as the URL.
+2.  **Auto Icon Check:** Confirms the GitHub logo favicon is rendered automatically next to the link upon entry.
+3.  **Blog Link:** Adds a Tistory blog link. The Tistory icon is automatically attached.
+4.  **Inline Edit:** Clicks the blog title text in the list to change it to 'Coding Diary' immediately.
+5.  **Delete Link:** Clicks the 'X' button next to a test link to remove it instantly.
+
+---
+
+## 4. Final Result Sharing & Visitor Experience (Public View)
+**User:** 'Park Colleague' visiting Kim Coding's page.
+
+1.  **Click URL:** Clicks the shared `mylink.site/kcoding-dev` link.
+2.  **Design View:** Enjoys the neobrutalism design optimized for mobile, with high contrast and bold button styles.
+3.  **Interaction:** Enjoys the hard shadow animation when hovering or touching buttons.
+4.  **Navigation:** Clicks 'My GitHub' and navigates to the GitHub page smoothly.
+5.  **Copy Link:** Kim Coding clicks 'Copy Link' on the dashboard to register the URL in their Instagram profile easily.
+
+---
+
+## 5. Ongoing Maintenance & Security
+**User:** 'Kim Coding' returning to update links.
+
+1.  **Re-entry:** Returns to the service. Google account info is maintained, so enters the dashboard immediately with one click.
+2.  **Update Info:** Quickly edits existing blog info or adds new portfolio links via inline editing.
+3.  **Security:** Feels safe knowing all edits are only possible within the authenticated Google session.

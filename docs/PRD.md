@@ -1,71 +1,71 @@
-# 🔗 마이링크 (MyLink) 제품 요구사항 정의서 (PRD)
+# 🔗 MyLink Product Requirements Document (PRD)
 
-## 1. 프로젝트 개요
-### 1.1. 프로젝트명
-**마이링크 (MyLink)**
+## 1. Project Overview
+### 1.1. Project Name
+**MyLink**
 
-### 1.2. 목적
-사용자의 다양한 소셜 미디어, 포트폴리오, 블로그 등 흩어져 있는 온라인 접점을 **하나의 직관적인 URL(Single Point of Entry)**로 통합하여 제공합니다. 군더더기 없는 미니멀한 기능과 강렬한 비주얼을 통해 퍼스널 브랜딩을 지원합니다.
+### 1.2. Purpose
+Integrates various social media, portfolios, and blog links into a **single intuitive URL (Single Point of Entry)**. Supports personal branding with a minimalist feature set and bold visuals.
 
-### 1.3. 대상 사용자
-*   **크리에이터 / 인플루언서:** 인스타그램, 유튜브, 틱톡 등 팔로워에게 모든 채널을 한 번에 안내하고 싶은 사용자.
-*   **프리랜서 / 비즈니스 오너:** 서비스 소개 및 결과물 링크를 심플하게 공유하고 싶은 전문가.
-*   **일반 사용자:** 자신의 프로필을 세련된 페이지로 요약하여 공유하고 싶은 누구나.
-
----
-
-## 2. 필수 기능 목록 (MVP)
-
-1. **사용자 인증:** Firebase 기반 구글 소셜 로그인 (온보딩 간소화)
-2. **프로필 관리:** 닉네임(displayName), 이름(username), 소개글(bio)의 **인라인 편집** 기능 제공 (※ 이미지 업로드 기능은 포함하지 않음)
-3. **링크 관리:** URL 추가/편집(인라인)/삭제 (활성화 여부 및 순서 변경 기능 제외)
-4. **링크 아이콘 자동화:** Google Favicon API를 통해 등록한 URL의 파비콘을 자동으로 아이콘으로 설정
-5. **반응형 프로필 페이지:** 모바일 및 데스크탑에 최적화된 공개 프로필 페이지
-
-*(참고: 서비스 전체 방문자 통계 기능은 제공하지 않으며, 향후 고도화 단계에서 각 링크의 '클릭 조회수' 확인 기능만 추가될 예정입니다.)*
+### 1.3. Target Users
+*   **Creators / Influencers:** Users active on multiple platforms (Instagram, YouTube, TikTok) who want to guide followers to all channels at once.
+*   **Freelancers / Business Owners:** Professionals who want to share service intros and results simply.
+*   **General Users:** Anyone who wants to summarize their profile into a stylish, shared page.
 
 ---
 
-## 3. 기능 상세 설명
+## 2. Core Feature List (MVP)
 
-### 3.1. 사용자 인증 및 계정 관리
-*   **로그인 방식:** **Firebase Auth (Google Social Login)** 전용.
-*   **초기 설정:** 가입 시 구글 이메일 ID를 기반으로 초기 `displayName` 및 `username`을 자동 할당합니다.
-*   **데이터 스토리지:** 모든 사용자 필드는 Firestore의 유저 문서에 저장됩니다.
+1. **User Authentication:** Firebase-based Google Social Login (streamlined onboarding).
+2. **Profile Management:** Inline editing for `displayName` (nickname/slug), `username`, and `bio`. (Note: Image upload is not supported).
+3. **Link Management:** Add/Edit(Inline)/Delete links. (Note: Link activation toggle and drag-and-drop reordering are excluded).
+4. **Link Icon Automation:** Automatically set favicons using the Google Favicon API for registered URLs.
+5. **Responsive Profile Page:** Mobile and desktop-optimized public profile page.
 
-### 3.2. 관리자 대시보드 (Admin Interface)
-*   **인라인 편집 (Inline Editing):** 
-    *   **모든 정보**(`displayName`, `username`, `bio`, 링크의 제목 및 URL)는 별도의 편집 페이지나 팝업 없이, 대시보드 상에서 텍스트를 직접 클릭하여 즉시 수정하는 방식을 따릅니다.
-*   **이미지 업로드 미지원:** 이미지 파일을 업로드하거나 변경하는 기능은 제공하지 않습니다. 아바타는 이름의 첫 글자를 따서 자동으로 생성됩니다.
-*   **닉네임 및 프로필 관리:**
-    *   **displayName(닉네임):** 페이지의 URL 슬러그가 되며, 대시보드에서 직접 수정 가능합니다. (단, 수정 시 이전 주소로는 접근 불가)
-    *   **username/bio(프로필):** 노출되는 이름과 한 줄 소개를 인라인으로 상시 수정할 수 있습니다.
-*   **링크 리스트 관리:**
-    *   **링크 추가/삭제:** 제목과 URL을 입력하여 즉시 생성 및 삭제.
-    *   **아이콘 자동 설정:** URL 입력 시 Google Favicon API를 통해 파비콘을 아이콘으로 자동 표시합니다.
-    *   **제외 사항:** 링크 활성 상태 전환 기능 및 드래그 앤 드롭 정렬 기능은 제외합니다.
-
-### 3.3. 공개 프로필 페이지 (Public Profile)
-*   **프로필 헤더:** 상단 중앙에 이름 첫 글자 아바타, 그 아래에 사용자가 설정한 `username`과 `bio` 배치.
-*   **네오브루탈리즘 스타일:** 강렬한 색상 대비, 두꺼운 블랙 보더, 하드 섀도우 디자인 적용.
-*   **공유 기능:** 현재 페이지 주소를 클립보드에 복사하는 버튼 제공.
+*(Note: Total visitor statistics are not provided. Only 'Click Counts' per link will be considered for future updates.)*
 
 ---
 
-## 4. 기술 스택 및 데이터 모델
+## 3. Feature Details
 
-| 구분 | 기술 Stack | 비고 |
+### 3.1. User Authentication & Account Management
+*   **Login Method:** **Firebase Auth (Google Social Login)** only.
+*   **Initial Setup:** Automatically assign initial `displayName` and `username` based on the Google email ID upon signup.
+*   **Data Storage:** All user fields are stored in the user's document in Firestore.
+
+### 3.2. Admin Dashboard
+*   **Inline Editing:**
+    *   **All info** (`displayName`, `username`, `bio`, link titles, and URLs) is edited by clicking the text directly on the dashboard, with no separate edit pages or popups.
+*   **No Image Upload:** No feature to upload or change image files. Avatars are automatically generated using the first letter of the name.
+*   **Profile Management:**
+    *   **displayName (Nickname):** Acts as the URL slug and can be edited inline. (Note: Changing it breaks the previous URL).
+    *   **username/bio (Profile):** Name and intro can be edited anytime inline.
+*   **Link List Management:**
+    *   **Add/Delete:** Enter title and URL to create or delete links immediately.
+    *   **Auto Icon:** Automatically display favicons via Google Favicon API upon entering a URL.
+    *   **Exclusions:** No link activation toggle or drag-and-drop reordering.
+
+### 3.3. Public Profile Page
+*   **Profile Header:** Initial-based avatar centered at the top, followed by `username` and `bio`.
+*   **Neobrutalism Style:** Strong color contrast, thick black borders, and hard shadow design.
+*   **Sharing:** Provide a button to copy the current page URL to the clipboard.
+
+---
+
+## 4. Tech Stack & Data Model
+
+| Category | Tech Stack | Remarks |
 | :--- | :--- | :--- |
 | **Frontend** | React / Next.js (App Router) | |
 | **Styling** | Vanilla CSS / Tailwind CSS | |
 | **Backend** | Firebase (Firestore, Auth) | |
-| **API** | Google Favicon API | 아이콘 자동 생성용 |
+| **API** | Google Favicon API | For automatic icon generation |
 
-### 데이터 모델 구조 (Firestore)
+### Data Model Structure (Firestore)
 1. **Users (Collection)**
-    *   `uid`: 고유 키 (Document ID)
-    *   `displayName`: URL 슬러그 (수정 가능, Unique)
-    *   `username`: 프로필 노출 이름 (수정 가능)
-    *   `bio`: 소개글 (수정 가능)
+    *   `uid`: Unique Key (Document ID)
+    *   `displayName`: URL Slug (Editable, Unique)
+    *   `username`: Display Name (Editable)
+    *   `bio`: Intro (Editable)
 2. **Links (Sub-collection of a User)**
-    *   각 링크 문서 필드: `id`, `title`, `url`, `createdAt`
+    *   Fields: `id`, `title`, `url`, `createdAt`
