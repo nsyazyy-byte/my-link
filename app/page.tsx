@@ -7,19 +7,19 @@ export default function Page() {
       title: "Google",
       icon: <Search className="w-6 h-6" />,
       color: "bg-[#FF3D00]",
-      url: "#",
+      url: "mailto:nsyazyy@gmail.com",
     },
     {
       title: "Email",
       icon: <Mail className="w-6 h-6" />,
       color: "bg-[#4CAF50]",
-      url: "#",
+      url: "mailto:su826@naver.com",
     },
     {
       title: "Instagram",
       icon: <Camera className="w-6 h-6" />,
       color: "bg-[#E1306C]",
-      url: "#",
+      url: "https://instagram.com/manifl",
     },
   ]
 
@@ -40,7 +40,7 @@ export default function Page() {
             NSY
           </h1>
           <p className="text-lg font-bold text-center leading-tight">
-            반갑습니다! 귀여운 강아지와 함께하는 마이링크 페이지입니다.
+            반갑습니다! 바이브코딩 -마이링크 프로젝트 nsy입니다
           </p>
         </div>
 
